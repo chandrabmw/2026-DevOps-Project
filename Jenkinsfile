@@ -2,45 +2,33 @@
 pipeline {
     agent any
 
-    options {
-        skipDefaultCheckout()
-    }
-
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-                echo 'Code downloaded successfully'
-            }
-        }
-
         stage('Build') {
             steps {
-                echo 'Build stage'
+                echo 'Building application'
                 sh 'ls -la'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Testing stage placeholder'
+                echo 'Testing application'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deployment stage placeholder'
+                echo 'Deploying application'
             }
         }
     }
 
     post {
         success {
-            echo 'Pipeline completed successfully'
+            echo 'Automation successful'
         }
-
         failure {
-            echo 'Pipeline failed'
+            echo 'Automation failed'
         }
     }
 }
